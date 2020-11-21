@@ -1,0 +1,92 @@
+\documentclass{article}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage[utf8]{inputenc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% ДОП.СИМВОЛЫ  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\usepackage{extarrows}
+\usepackage{braket}
+\usepackage{MnSymbol}
+\usepackage{mathtools}
+\usepackage{commath}
+
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  ГРАФИКА  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Цвета:
+\usepackage{color} 
+\usepackage{xcolor}
+
+%Картиночки:
+\usepackage{graphicx}
+\graphicspath{{pictures/}}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+%Встроенная графика 
+\usepackage{tikz}
+\usetikzlibrary{
+    shapes.symbols,
+    shapes.geometric,
+    shadows,arrows.meta,
+    graphs
+}
+
+\usepackage{flowchart}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ВЕРСТКА 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[toc,page]{appendix}
+\usepackage{hyperref}
+\hypersetup{
+    unicode=true,
+    colorlinks=true,
+    linktoc=all,  
+    linkcolor=blue,
+}
+\usepackage{hhline}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{enumitem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ВЕРСТКА 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Шрифты - настройки по умолчанию.
+\renewcommand{\rmdefault}{cmr}
+\renewcommand{\sfdefault}{cmss}
+\renewcommand{\ttdefault}{cmtt}
+
+%Формат секции
+\makeatletter
+\renewcommand{\@seccntformat}[1]{}
+\makeatother
+
+
+%Пробел
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+
+%Размеры страницы (не забыть подогнать под принтер)
+\usepackage[left=2cm,right=2cm,bottom=2cm]{geometry}
+
+%Списки:
+\setlist{topsep=1pt, itemsep=0em}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Чекпоинт I}
+\author{Михаил Михайлов, Ельцов Данил, Евдокимов Данил,\\ Гущин Илья, Пантелеймонов Андрей}
+\date{10 ноября 2020 г.}
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section*{Резюме}
+
+\newpage
+\section{Цели и результаты}}
+\end{document}
