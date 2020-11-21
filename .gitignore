@@ -1,5 +1,11 @@
 .Rhistory
-precedents.csv
-fixed_precedents.csv
-temp
-fixed_temp.csv
+*.csv
+*.dic
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+
