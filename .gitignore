@@ -1,0 +1,14 @@
+.Rhistory
+
+data/**
+temp/**
+
+*.csv
+*.dic
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
