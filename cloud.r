@@ -1,0 +1,11 @@
+library(tm)
+library(NLP)
+library(wordcloud)
+library(wordcloud2)
+
+dictionary<-readLines("data/frequency.dic")
+class(dictionary)
+word_cloud <- unlist(dictionary)
+png("image.png", width=2500,height=2500)
+wordcloud(word_cloud,min.freq = 3, max.words=1000, random.order=F, colors=brewer.pal(5, "Dark2"), scale=c(8,0.6))
+dev.off()
