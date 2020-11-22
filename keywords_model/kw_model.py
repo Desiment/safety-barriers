@@ -1,4 +1,5 @@
 from nltk.corpus import stopwords
+import sys
 import nltk
 import pandas as pd
 import numpy as np
@@ -17,28 +18,21 @@ def fstmin(numbers):
         if numbers[i] < mn:
             mn = numbers[i]
             pos = i
-    return mn, i
-
-def fstmax(numbers):
-    mx = float('-inf')
-    pos = -1
-    for i in range(0, len(numbers)):
-        if numbers[i] > mx:
-            mx = numbers[i]
-            pos = i
-    return mx, i
+    return mn, pos
 
 def secmax(numbers):
     mx = smx = float('-inf')
-    pos = -1
+    mx_p = smx_p = -1
     for i in range(0, len(numbers)):
-        if numbers[i] > smx:
+        if numbers[i] >= smx:
             if numbers[i] >= mx:
-                mx, smx = numbers[i], mx            
+                mx, smx = numbers[i], mx
+                smx_p = mx_p
+                mx_p = i
             else:
                 smx = numbers[i]
-                pos = i
-    return smx, i
+                smx_p = i
+    return smx, mx, smx_p, mx_p
 
 
 def clear_msg(message):
@@ -56,7 +50,6 @@ def clear_msg(message):
 def procs_msg(message):
     message = clear_msg(message)
     classificator = pd.read_csv(CLUSTER_PATH, delimiter=',')
-    
     values = []
     row = 0
     for index, cluster in classificator.iterrows():
@@ -64,33 +57,33 @@ def procs_msg(message):
         for key_val in str(cluster[1]).split(' '):    
             values[index] += message.count(str(key_val))
     
-    mn, indn  = fstmin(values.copy())
-    mx, indx  = fstmax(values.copy())
-    smx, inds = secmax(values.copy())
-    
-    
+    mn, indn = fstmin(values.copy())
+    smx, mx, inds, indx  = secmax(values.copy())
     cluster_row = -3
-    if (mx - mn < 2):
+    if (mx - mn  == 0):
         cluster_row = -1
     else:
         for i in range(0, len(values)):
             values[i] = (values[i] - mn) / (mx - mn)
-        
         if statistics.median(values) >= 0.7:
             cluster_row = -1
         else:
-            if (mx - smx > 1):
+            if (mx - smx >= 1):
                 cluster_row = indx
             else:
                 cluster_row = -2
-    
-    if cluster_row = -1:
+    #print(values)
+    #print(mn, mx, smx, indn, indx, inds)
+    names = classificator['names'].tolist()
+    if cluster_row == -1:
         return ("Другое", "")
-    else if cluster_row = -2:
-        return (to_str(classifictor["names"][indx]), to_str(classifictor["names"][inds])) 
+    elif cluster_row == -2:
+        return (str(names[indx]), str(names[inds])) 
     else:
-        return (to_str(classifictor["names"][cluster_row]), "") 
+        return (str(names[cluster_row]), "") 
 
-
-procs_msg("лед, ветер, вода, труба, автомобиль")
+msg = ""
+for q in sys.argv[1:]:
+    msg += str(q) + " "
+print(procs_msg(msg))
     
