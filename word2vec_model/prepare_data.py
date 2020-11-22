@@ -1,7 +1,9 @@
 from nltk.corpus import stopwords
+import nltk
 import pandas as pd
 import csv
 import re
+import pymorphy2
 
 stop_words_data = pd.read_csv('data/stopwords', delimiter=',')
 stop_words = set(stop_words_data['words'])
@@ -17,10 +19,13 @@ text_data = (data['subsidiary'] + ' '
 text_data = pd.DataFrame(text_data)
 text_data = text_data.rename(columns={0: 'text'})
 
+morph = pymorphy2.MorphAnalyzer()
+
 pattern = re.compile('[^А-яЁё_]+', re.UNICODE)
-text_data['text'] = text_data['text'].map(lambda s: ' '.join(
+lemmatizer = nltk.wordnet.WordNetLemmatizer()
+text_data['text'] = text_data['text'].map(lambda s: ' '.join(map(lambda s: morph.parse(s)[0].normal_form,
     list(filter(lambda s: s not in stop_words and len(s.strip()) > 0,
-                [pattern.sub('', w) for w in str(s).strip().split(' ')]))))
+                [pattern.sub('', w) for w in str(s).strip().split(' ')])))))
 
 # print(text_data)
 text_data.to_csv('data/documents.csv', index=True, quoting=csv.QUOTE_ALL)
