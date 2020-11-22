@@ -9,7 +9,6 @@ library(RColorBrewer)
 dic_demo <- NULL
 if(!file.exists("dictonary_freq.dic"))
 {
-    print("AAA")
     data_path <- "demo.dic"
     stopwords_path <- "stopwords.ru"
 
@@ -19,7 +18,7 @@ if(!file.exists("dictonary_freq.dic"))
     #Use lem instead of stem
     dic_demo <- removeWords(dic_demo, words = stopwords)
     for(i in 0:length(dic_demo)) 
-        { dic_demo[i] <- tolower(wordStem(dic_demo[i], language="russian")) }
+        {dic_demo[i] <- tolower(wordStem(dic_demo[i], language="russian")) }
     dic_demo <- removeWords(dic_demo, words = stopwords)
 
     #Save
@@ -39,7 +38,8 @@ if(!file.exists("dictonary_freq.dic"))
 class(dic_demo)
 word_cloud <- unlist(dic_demo)
 
-wordcloud(word_cloud,min.freq = 5, max.words=1000, random.order=F, rot.per=0.2, colors=brewer.pal(5, "Dark2"), scale=c(4,0.2))
+png(wordcloud(word_cloud,min.freq = 3, max.words=1000, random.order=F, colors=brewer.pal(5, "Dark2"), scale=c(20,0.15)), filename="tedt.png")
+
 
 
 

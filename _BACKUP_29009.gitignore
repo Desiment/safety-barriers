@@ -1,0 +1,19 @@
+.Rhistory
+<<<<<<< HEAD
+*.csv
+*.dic
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+
+=======
+precedents.csv
+fixed_precedents.csv
+temp
+fixed_temp.csv
+testfile
+>>>>>>> 4266ac1e24a361e10aee6d0ce04a632a74644f42

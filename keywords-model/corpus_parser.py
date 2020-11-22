@@ -5,7 +5,7 @@ import numpy as np
 spec_symbols = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '.', ',', '№', '\\', '/', '(', ')', '\"']
 def reduct(word):
     for sym in spec_symbols:
-        word = word.replace(sym, '')
+        word = word.replace(sym, ' ')
     return word
 
 data = pd.read_csv("data.csv")
