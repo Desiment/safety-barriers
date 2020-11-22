@@ -1,6 +1,14 @@
 .Rhistory
-precedents.csv
-fixed_precedents.csv
-test.py
+
 data/**
 temp/**
+
+*.csv
+*.dic
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
