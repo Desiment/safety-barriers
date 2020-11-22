@@ -28,4 +28,3 @@ new = new.rename(columns={
     3: 'place',
     4: 'description'})
 new.to_csv('fixed_precedents.csv', index=True, quoting=csv.QUOTE_ALL)
-# print(new)
