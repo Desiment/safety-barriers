@@ -1,7 +1,7 @@
 import pandas as pd
 from gensim.models.word2vec import Word2Vec
 
-data = pd.read_csv('../data/documents.csv', delimiter=',')
+data = pd.read_csv('../data/documents_advanced.csv', delimiter=',')
 model = Word2Vec(
     min_count=3,
     window=5,
