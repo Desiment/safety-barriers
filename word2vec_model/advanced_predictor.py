@@ -8,8 +8,10 @@ test = pd.read_csv('../data/test.csv', delimiter=',', index_col=0)
 elmo = ElmoModel()
 elmo.load('../data/195.zip')
 
-model = load('../data/advanced_kmeans.joblib')
+
 vectors = elmo.get_elmo_vector_average([test['text'].tolist()])
+
+model = load('../data/advanced_kmeans.joblib')
 clusters = model.predict(vectors)
 
 test['cluster'] = pd.DataFrame(clusters)
